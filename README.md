@@ -1,6 +1,6 @@
 # Flutter sequence animation
 
-<img src="https://user-images.githubusercontent.com/55922402/133923132-f1960ad2-8174-4d68-b917-c81242d41eab.gif" height="600" />
+<img src="https://user-images.githubusercontent.com/55922402/133923132-f1960ad2-8174-4d68-b917-c81242d41eab.gif" height="1080" />
 
 
 This demo shows how to use [IndexedStack](https://api.flutter.dev/flutter/widgets/IndexedStack-class.html) 
