@@ -86,7 +86,7 @@ class _AmountSliderState extends State<AmountSlider> {
                 itemBuilder: (context, index) {
                   if (index == 0 || index == divisionsCount + 1) {
                     return SizedBox(
-                      width: xMiddleScreen - spaceBetweenDivisions,
+                      width: xMiddleScreen - spaceBetweenDivisions - (divisionWidth / 2),
                     );
                   }
                   return AnimatedContainer(
