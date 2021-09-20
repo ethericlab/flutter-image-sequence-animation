@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_sequence_animation/amount_slider.dart';
+import 'package:flutter_sequence_animation/digits_keyboard_buttom.dart';
+import 'package:flutter_sequence_animation/done_button.dart';
 
 import 'amount_badge.dart';
 
@@ -20,7 +22,7 @@ const int startRotationPiDivider = 360;
 const int endRotationPiDivider = 48;
 
 const sliderMin = 0.0;
-const sliderMax = 600.0;
+const sliderMax = 500.0;
 
 void main() {
   runApp(MyApp());
@@ -31,7 +33,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        appBarTheme: AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.white)),
+        appBarTheme: AppBarTheme(
+            systemOverlayStyle:
+                SystemUiOverlayStyle(statusBarColor: Colors.white)),
         scaffoldBackgroundColor: const Color(0xFF856EE1),
         brightness: Brightness.dark,
       ),
@@ -113,11 +117,15 @@ class _HomePageState extends State<HomePage> {
               ),
               Text(
                 'Set amount',
-                style: TextStyle(fontSize: 18, color: Colors.white),
+                style: TextStyle(
+                  fontFamily: 'Averta',
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
               ),
               const Expanded(
                 child: SizedBox(),
-                flex: 3,
+                flex: 2,
               ),
               SizedBox(
                 height: endImageHeight,
@@ -155,10 +163,30 @@ class _HomePageState extends State<HomePage> {
                 onChanged: onSliderValueChanged,
                 min: sliderMin,
                 max: sliderMax,
+                initialValue: 100,
               ),
               const Expanded(
                 child: SizedBox(),
-                flex: 4,
+                flex: 2,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 70,
+                      child: DigitsKeyboardButton(
+                        onPressed: () => print('Keyboard opened'),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Flexible(child: DoneButton(onPressed: () => print('Done'))),
+                  ],
+                ),
+              ),
+              const Expanded(
+                child: SizedBox(),
+                flex: 2,
               ),
             ],
           ),

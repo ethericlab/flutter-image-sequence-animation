@@ -34,7 +34,11 @@ class AmountBadge extends StatelessWidget {
           ),
           child: Text(
             '\$ $value',
-            style: TextStyle(color: Colors.white, fontSize: 34),
+            style: TextStyle(
+              fontFamily: 'Averta',
+              color: Colors.white,
+              fontSize: 34,
+            ),
           ),
         ),
       ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const divisionsCount = 16;
+const divisionsCount = 51;
 const divisionWidth = 3.0;
 const mainDivisionWidth = 4.0;
 const spaceBetweenDivisions = 40.0;
@@ -12,12 +12,14 @@ class AmountSlider extends StatefulWidget {
   final ValueChanged<double>? onChanged;
   final double min;
   final double max;
+  final double? initialValue;
 
   const AmountSlider({
     Key? key,
     required this.onChanged,
     required this.min,
     required this.max,
+    this.initialValue,
   }) : super(key: key);
 
   @override
@@ -36,6 +38,7 @@ class _AmountSliderState extends State<AmountSlider> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) => setInitialValue());
     scrollController.addListener(() {
       setState(() {
         if (widget.onChanged != null) {
@@ -59,6 +62,14 @@ class _AmountSliderState extends State<AmountSlider> {
   void dispose() {
     scrollController.dispose();
     super.dispose();
+  }
+
+  void setInitialValue() {
+    if (widget.initialValue != null) {
+      final initialValueToScrollOffset =
+          widget.initialValue! / widget.max * scrollWidth;
+      scrollController.jumpTo(initialValueToScrollOffset);
+    }
   }
 
   @override
@@ -99,7 +110,7 @@ class _AmountSliderState extends State<AmountSlider> {
                       borderRadius: BorderRadius.circular(2),
                       color: const Color(0x80FFFFFF),
                     ),
-                    duration: const Duration(microseconds: 100),
+                    duration: const Duration(microseconds: 0),
                   );
                 },
               ),
@@ -146,10 +157,10 @@ class _AmountSliderState extends State<AmountSlider> {
 
   double calculateDivisionWidth(int itemIndex) {
     final itemDistanceToCenter = calculateDistanceToCenter(itemIndex);
-    if (itemDistanceToCenter >= -40 - mainDivisionWidth / 2 &&
+    if (itemDistanceToCenter >= -40 - mainDivisionWidth &&
         itemDistanceToCenter < 0) {
       return mainDivisionWidth;
-    } else if (itemDistanceToCenter <= 40 + mainDivisionWidth / 2 &&
+    } else if (itemDistanceToCenter <= 40 + mainDivisionWidth &&
         itemDistanceToCenter > 0) {
       return mainDivisionWidth;
     }
