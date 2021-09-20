@@ -1,10 +1,10 @@
-# Flutter sequence animation
+# Flutter image sequence animation
 
 <img src="https://user-images.githubusercontent.com/55922402/133982256-140f54fc-7a69-472b-a7aa-145039a186f2.gif" height="479"/>
 
 
 This demo shows how to use [IndexedStack](https://api.flutter.dev/flutter/widgets/IndexedStack-class.html) 
-and [Transform](https://api.flutter.dev/flutter/widgets/Transform-class.html) widgets to make a sequence animation 
+and [Transform](https://api.flutter.dev/flutter/widgets/Transform-class.html) widgets to make a image sequence animation 
 depending on slider.
 
 ## Running the demo
@@ -24,4 +24,4 @@ depending on slider.
 
 ## License
 
-Flutter sequence animation is available under the MIT license. See the LICENSE file for more info.
+Flutter image sequence animation is available under the MIT license. See the LICENSE file for more info.
