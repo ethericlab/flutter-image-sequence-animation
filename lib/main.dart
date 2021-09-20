@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_sequence_animation/amount_slider.dart';
 
 import 'amount_badge.dart';
@@ -30,7 +31,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        appBarTheme: AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.white)),
         scaffoldBackgroundColor: const Color(0xFF856EE1),
+        brightness: Brightness.dark,
       ),
       debugShowCheckedModeBanner: false,
       home: HomePage(),
